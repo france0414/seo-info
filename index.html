@@ -8,14 +8,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #f6f8fb;
-            --bg-2: #eef2f7;
-            --ink: #0f172a;
-            --muted: #475569;
-            --line: #e2e8f0;
-            --accent: #2563eb;
-            --accent-2: #0ea5e9;
-            --panel: rgba(255, 255, 255, 0.88);
+            --bg: #0b1220;
+            --bg-2: #0f172a;
+            --ink: #e2e8f0;
+            --muted: #94a3b8;
+            --line: rgba(148, 163, 184, 0.2);
+            --accent: #38bdf8;
+            --accent-2: #22d3ee;
+            --panel: rgba(15, 23, 42, 0.72);
         }
         body {
             font-family: 'Noto Sans TC', sans-serif;
@@ -28,8 +28,8 @@
             position: fixed;
             inset: 0;
             background:
-                radial-gradient(800px 420px at 10% -10%, rgba(37, 99, 235, 0.12), transparent 60%),
-                radial-gradient(700px 520px at 90% 0%, rgba(14, 165, 233, 0.12), transparent 55%),
+                radial-gradient(760px 420px at 10% -10%, rgba(56, 189, 248, 0.16), transparent 60%),
+                radial-gradient(700px 520px at 90% 0%, rgba(34, 211, 238, 0.14), transparent 55%),
                 linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
             z-index: -2;
         }
@@ -38,18 +38,18 @@
             position: fixed;
             inset: 0;
             background-image:
-                linear-gradient(rgba(15, 23, 42, 0.06) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(15, 23, 42, 0.06) 1px, transparent 1px);
-            background-size: 48px 48px;
-            opacity: 0.35;
+                linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+            background-size: 56px 56px;
+            opacity: 0.25;
             z-index: -1;
             pointer-events: none;
         }
         .prose code {
-            background-color: #e2e8f0;
+            background-color: rgba(15, 23, 42, 0.9);
             padding: 0.2rem 0.4rem;
             border-radius: 0.25rem;
-            color: #0ea5e9;
+            color: #38bdf8;
             font-size: 0.9em;
         }
         .sticky-sidebar {
@@ -57,7 +57,7 @@
             top: 2rem;
         }
         .header-glass {
-            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+            box-shadow: 0 10px 28px rgba(8, 12, 22, 0.6);
         }
         .nav-link {
             display: block;
@@ -68,52 +68,52 @@
             transition: all 0.2s ease;
         }
         .nav-link:hover {
-            background: rgba(255, 255, 255, 0.8);
-            border-color: var(--line);
-            color: var(--ink);
-            box-shadow: 0 10px 22px rgba(15, 23, 42, 0.08);
+            background: rgba(15, 23, 42, 0.9);
+            border-color: rgba(56, 189, 248, 0.2);
+            color: #e2e8f0;
+            box-shadow: 0 10px 22px rgba(8, 12, 22, 0.6);
         }
         .nav-link.active {
-            background: rgba(37, 99, 235, 0.08);
-            color: #1d4ed8;
-            border-color: rgba(37, 99, 235, 0.2);
+            background: rgba(56, 189, 248, 0.12);
+            color: #7dd3fc;
+            border-color: rgba(56, 189, 248, 0.35);
         }
         .panel {
             background: var(--panel);
             border: 1px solid var(--line);
             border-radius: 1.25rem;
-            box-shadow: 0 16px 32px rgba(15, 23, 42, 0.08);
+            box-shadow: 0 18px 36px rgba(8, 12, 22, 0.55);
             backdrop-filter: blur(6px);
         }
         .panel-muted {
-            background: rgba(248, 250, 252, 0.92);
-            border: 1px solid var(--line);
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(148, 163, 184, 0.18);
             border-radius: 1.25rem;
         }
         .panel-accent {
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.92), rgba(14, 165, 233, 0.86));
-            border: 1px solid rgba(255, 255, 255, 0.35);
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.85), rgba(14, 116, 144, 0.75));
+            border: 1px solid rgba(56, 189, 248, 0.35);
             border-radius: 1.5rem;
-            box-shadow: 0 18px 36px rgba(37, 99, 235, 0.25);
+            box-shadow: 0 22px 40px rgba(14, 116, 144, 0.35);
         }
         .panel-danger {
-            background: rgba(254, 242, 242, 0.9);
-            border: 1px solid rgba(239, 68, 68, 0.22);
-            border-left: 4px solid #ef4444;
+            background: rgba(127, 29, 29, 0.25);
+            border: 1px solid rgba(248, 113, 113, 0.28);
+            border-left: 4px solid #f87171;
             border-radius: 1.25rem;
-            box-shadow: 0 14px 28px rgba(239, 68, 68, 0.12);
+            box-shadow: 0 16px 30px rgba(127, 29, 29, 0.35);
         }
         .panel-success {
-            background: rgba(240, 253, 244, 0.92);
-            border: 1px solid rgba(34, 197, 94, 0.22);
-            border-left: 4px solid #22c55e;
+            background: rgba(20, 83, 45, 0.25);
+            border: 1px solid rgba(74, 222, 128, 0.28);
+            border-left: 4px solid #4ade80;
             border-radius: 1.25rem;
-            box-shadow: 0 14px 28px rgba(34, 197, 94, 0.12);
+            box-shadow: 0 16px 30px rgba(20, 83, 45, 0.35);
         }
         .panel-dark {
-            background: #0b1220;
-            border: 1px solid rgba(148, 163, 184, 0.2);
-            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.35);
+            background: #0a0f1c;
+            border: 1px solid rgba(56, 189, 248, 0.15);
+            box-shadow: 0 24px 46px rgba(8, 12, 22, 0.6);
             position: relative;
             overflow: hidden;
         }
@@ -122,12 +122,43 @@
             position: absolute;
             inset: 0;
             background-image:
-                linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+                linear-gradient(rgba(56, 189, 248, 0.08) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(56, 189, 248, 0.08) 1px, transparent 1px);
             background-size: 56px 56px;
             opacity: 0.4;
             pointer-events: none;
         }
+        body .text-slate-900 { color: #e2e8f0 !important; }
+        body .text-slate-800 { color: #cbd5e1 !important; }
+        body .text-slate-700 { color: #cbd5e1 !important; }
+        body .text-slate-600 { color: #94a3b8 !important; }
+        body .text-slate-500 { color: #94a3b8 !important; }
+        body .text-slate-400 { color: #64748b !important; }
+        body .text-slate-300 { color: #cbd5e1 !important; }
+        body .text-blue-800 { color: #bae6fd !important; }
+        body .text-blue-600 { color: #38bdf8 !important; }
+        body .text-blue-500 { color: #38bdf8 !important; }
+        body .text-green-700 { color: #4ade80 !important; }
+        body .text-green-600 { color: #4ade80 !important; }
+        body .text-red-700 { color: #f87171 !important; }
+        body .text-red-600 { color: #f87171 !important; }
+        body .text-orange-800 { color: #fbbf24 !important; }
+        body .text-amber-600 { color: #f59e0b !important; }
+        body .bg-white { background-color: rgba(15, 23, 42, 0.85) !important; }
+        body .bg-slate-100 { background-color: rgba(15, 23, 42, 0.7) !important; }
+        body .bg-blue-50 { background-color: rgba(56, 189, 248, 0.12) !important; }
+        body .bg-blue-100 { background-color: rgba(56, 189, 248, 0.14) !important; }
+        body .bg-red-50 { background-color: rgba(248, 113, 113, 0.14) !important; }
+        body .bg-green-50 { background-color: rgba(74, 222, 128, 0.14) !important; }
+        body .bg-amber-100 { background-color: rgba(251, 191, 36, 0.14) !important; }
+        body .border-slate-100 { border-color: rgba(148, 163, 184, 0.18) !important; }
+        body .border-slate-200 { border-color: rgba(148, 163, 184, 0.22) !important; }
+        body .border-slate-300 { border-color: rgba(148, 163, 184, 0.3) !important; }
+        body .border-slate-400 { border-color: rgba(148, 163, 184, 0.4) !important; }
+        body .border-slate-600 { border-color: rgba(148, 163, 184, 0.5) !important; }
+        body .border-blue-200 { border-color: rgba(56, 189, 248, 0.35) !important; }
+        body .border-green-200 { border-color: rgba(74, 222, 128, 0.35) !important; }
+        body .border-red-100 { border-color: rgba(248, 113, 113, 0.3) !important; }
         main > section {
             opacity: 0;
             transform: translateY(16px);
@@ -148,10 +179,10 @@
         }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-900">
+<body class="bg-transparent text-slate-100">
 
     <!-- Header -->
-    <header class="bg-white/70 border-b border-slate-200/60 sticky top-0 z-50 py-4 backdrop-blur-xl header-glass">
+    <header class="bg-slate-950/70 border-b border-slate-800/60 sticky top-0 z-50 py-4 backdrop-blur-xl header-glass">
         <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
             <div class="flex items-center gap-2">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-600"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
@@ -242,17 +273,17 @@
                     
                     <div class="flex flex-col lg:flex-row gap-6 items-center">
                         <div class="w-full lg:w-1/2 space-y-3">
-                            <div class="p-3 bg-slate-50 border rounded text-xs font-mono text-slate-500">example.com/product-a</div>
-                            <div class="p-3 bg-slate-50 border rounded text-xs font-mono text-slate-500">example.com/product-a?color=blue</div>
-                            <div class="p-3 bg-slate-50 border rounded text-xs font-mono text-slate-500">example.com/product-a?utm_source=fb</div>
+                            <div class="p-3 bg-slate-900/60 border border-slate-700/60 rounded text-xs font-mono text-slate-300">example.com/product-a</div>
+                            <div class="p-3 bg-slate-900/60 border border-slate-700/60 rounded text-xs font-mono text-slate-300">example.com/product-a?color=blue</div>
+                            <div class="p-3 bg-slate-900/60 border border-slate-700/60 rounded text-xs font-mono text-slate-300">example.com/product-a?utm_source=fb</div>
                         </div>
                         <div class="hidden lg:block">
                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-500"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
                         </div>
                         <div class="w-full lg:w-1/2">
                             <div class="p-6 panel-muted border-2 border-dashed border-slate-300 rounded-xl flex flex-col items-center">
-                                <span class="bg-blue-600 text-white text-[10px] px-2 py-0.5 rounded-full mb-2 uppercase font-bold">Canonical URL</span>
-                                <div class="text-sm font-bold text-blue-800 font-mono">example.com/product-a</div>
+                                <span class="bg-sky-400 text-slate-950 text-[10px] px-2 py-0.5 rounded-full mb-2 uppercase font-bold">Canonical URL</span>
+                                <div class="text-sm font-bold text-sky-200 font-mono">example.com/product-a</div>
                             </div>
                         </div>
                     </div>
@@ -319,7 +350,7 @@
                         <p class="text-sm text-red-700 leading-relaxed mb-4">
                             許多設計師希望「自動」讓台灣人去台灣站。但 Google 爬蟲大多來自美國 IP，一旦設定自動跳轉，爬蟲會被永遠鎖在英文站，抓不到台灣站的內容。
                         </p>
-                        <div class="flex justify-center p-4 bg-white rounded-lg">
+                        <div class="flex justify-center p-4 bg-slate-900/70 rounded-lg border border-red-400/30">
                             <div class="text-center">
                                 <div class="text-3xl mb-1">🤖</div>
                                 <div class="text-[10px] text-slate-400">Google Crawler</div>
@@ -334,14 +365,14 @@
                         <p class="text-sm text-green-700 leading-relaxed mb-4">
                             當偵測到使用者 IP 與當下站點不符時，彈出一個美觀的視窗提示建議切換，但允許使用者關閉並繼續閱讀當下內容。
                         </p>
-                        <div class="p-4 bg-white rounded-lg border-2 border-green-200">
+                        <div class="p-4 bg-slate-900/70 rounded-lg border border-emerald-400/30">
                             <div class="flex items-center justify-between border-b pb-2 mb-2">
                                 <span class="text-[10px] font-bold">Site Suggestion</span>
                                 <span class="text-[10px]">✕</span>
                             </div>
                             <div class="text-center py-2">
                                 <p class="text-[10px] mb-2">偵測到您來自台灣，是否前往中文站？</p>
-                                <button class="bg-blue-600 text-white text-[8px] px-3 py-1 rounded">前往中文站</button>
+                                <button class="bg-sky-400 text-slate-950 text-[8px] px-3 py-1 rounded">前往中文站</button>
                             </div>
                         </div>
                     </div>
@@ -393,7 +424,7 @@
     </div>
 
     <!-- Footer -->
-    <footer class="bg-white/70 border-t border-slate-200/60 py-10 backdrop-blur-xl">
+    <footer class="bg-slate-950/70 border-t border-slate-800/60 py-10 backdrop-blur-xl">
         <div class="max-w-7xl mx-auto px-6 text-center text-slate-500 text-sm">
             <p>© 2026 SEO Technical Guidelines. All rights reserved.</p>
         </div>
