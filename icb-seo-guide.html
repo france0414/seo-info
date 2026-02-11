@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="zh-TW" style="scroll-behavior: smooth;">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICB/Odoo 多站台部落格 SEO 策略指南</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
+
+        :root {
+            --bg: #0b1220;
+            --bg-2: #0f172a;
+            --ink: #e2e8f0;
+            --muted: #94a3b8;
+            --line: rgba(148, 163, 184, 0.22);
+            --accent: #38bdf8;
+            --accent-2: #22d3ee;
+            --panel: rgba(15, 23, 42, 0.75);
+        }
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background: var(--bg);
+            color: var(--ink);
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(760px 420px at 10% -10%, rgba(56, 189, 248, 0.16), transparent 60%),
+                radial-gradient(700px 520px at 90% 0%, rgba(34, 211, 238, 0.14), transparent 55%),
+                linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+            z-index: -2;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+            background-size: 56px 56px;
+            opacity: 0.25;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.92) 0%, rgba(10, 90, 130, 0.8) 100%);
+            border-bottom: 1px solid rgba(56, 189, 248, 0.18);
+            box-shadow: 0 20px 48px rgba(8, 12, 22, 0.6);
+        }
+
+        .sidebar-link {
+            background: transparent;
+            border: 1px solid transparent;
+        }
+
+        .sidebar-link:hover {
+            background-color: rgba(15, 23, 42, 0.9);
+            color: #e2e8f0;
+            border-color: rgba(56, 189, 248, 0.25);
+            box-shadow: 0 10px 22px rgba(8, 12, 22, 0.6);
+        }
+
+        body .text-slate-800 { color: #cbd5e1 !important; }
+        body .text-slate-700 { color: #cbd5e1 !important; }
+        body .text-slate-600 { color: #94a3b8 !important; }
+        body .text-slate-500 { color: #94a3b8 !important; }
+        body .text-slate-400 { color: #64748b !important; }
+        body .text-purple-100 { color: #bae6fd !important; }
+        body .text-purple-300 { color: #7dd3fc !important; }
+        body .text-purple-500 { color: #38bdf8 !important; }
+        body .text-purple-700 { color: #38bdf8 !important; }
+        body .text-amber-900 { color: #fcd34d !important; }
+        body .text-amber-800 { color: #fbbf24 !important; }
+        body .text-amber-700 { color: #f59e0b !important; }
+        body .text-amber-600 { color: #f59e0b !important; }
+        body .text-blue-900 { color: #bae6fd !important; }
+        body .text-blue-800 { color: #7dd3fc !important; }
+        body .text-blue-700 { color: #38bdf8 !important; }
+        body .text-blue-600 { color: #38bdf8 !important; }
+        body .text-blue-500 { color: #38bdf8 !important; }
+        body .text-indigo-500 { color: #38bdf8 !important; }
+        body .text-indigo-200 { color: #7dd3fc !important; }
+        body .text-emerald-900 { color: #86efac !important; }
+        body .text-emerald-800 { color: #6ee7b7 !important; }
+        body .text-emerald-600 { color: #4ade80 !important; }
+        body .text-emerald-500 { color: #4ade80 !important; }
+        body .text-red-400 { color: #f87171 !important; }
+        body .text-red-600 { color: #f87171 !important; }
+
+        body .bg-white { background-color: rgba(15, 23, 42, 0.78) !important; }
+        body .bg-white\/60 { background-color: rgba(15, 23, 42, 0.65) !important; }
+        body .bg-slate-50 { background-color: rgba(15, 23, 42, 0.72) !important; }
+        body .bg-slate-900 { background-color: rgba(10, 15, 28, 0.9) !important; }
+        body .bg-purple-50 { background-color: rgba(56, 189, 248, 0.12) !important; }
+        body .bg-purple-500\/30 { background-color: rgba(56, 189, 248, 0.18) !important; }
+        body .bg-purple-600 { background-color: #0ea5e9 !important; }
+        body .bg-amber-50 { background-color: rgba(251, 191, 36, 0.12) !important; }
+        body .bg-amber-200 { background-color: rgba(251, 191, 36, 0.2) !important; }
+        body .bg-blue-50 { background-color: rgba(56, 189, 248, 0.12) !important; }
+        body .bg-emerald-50 { background-color: rgba(74, 222, 128, 0.12) !important; }
+
+        body .border-slate-100 { border-color: rgba(148, 163, 184, 0.18) !important; }
+        body .border-purple-100 { border-color: rgba(56, 189, 248, 0.22) !important; }
+        body .border-amber-100 { border-color: rgba(251, 191, 36, 0.25) !important; }
+        body .border-amber-200 { border-color: rgba(251, 191, 36, 0.28) !important; }
+        body .border-amber-200\/50 { border-color: rgba(251, 191, 36, 0.3) !important; }
+        body .border-amber-300 { border-color: rgba(251, 191, 36, 0.35) !important; }
+        body .border-blue-100 { border-color: rgba(56, 189, 248, 0.22) !important; }
+        body .border-blue-200 { border-color: rgba(56, 189, 248, 0.28) !important; }
+        body .border-indigo-100 { border-color: rgba(56, 189, 248, 0.22) !important; }
+        body .border-emerald-100 { border-color: rgba(74, 222, 128, 0.22) !important; }
+        body .border-emerald-500 { border-color: rgba(74, 222, 128, 0.7) !important; }
+        body .border-red-500 { border-color: rgba(248, 113, 113, 0.7) !important; }
+
+        body .hover\:bg-purple-700:hover { background-color: #0284c7 !important; }
+
+        /* 當前章節的高亮效果 */
+        section {
+            scroll-margin-top: 2rem;
+        }
+    </style>
+</head>
+
+<body class="text-slate-100 relative">
+
+    <!-- Header (Full Width) -->
+    <header class="gradient-bg text-white py-10 px-6 shadow-md" id="top">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div>
+                <div class="flex items-center gap-3 mb-2">
+                    <i class="fas fa-search-nodes text-2xl text-purple-300"></i>
+                    <span class="bg-purple-500/30 px-3 py-1 rounded-full text-xs font-medium tracking-wide">實戰案例解析：ICB
+                        (Odoo 14)</span>
+                </div>
+                <h1 class="text-3xl md:text-4xl font-bold">多站台體系下的 SEO 策略指南</h1>
+            </div>
+            <p class="text-purple-100 max-w-sm text-sm leading-relaxed opacity-80">
+                針對 ICB 多站台架構中的重複內容問題，為設計師與業務提供標準化解決方案。
+            </p>
+        </div>
+    </header>
+
+    <!-- Main Layout Container -->
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row gap-8 px-6 py-10">
+
+        <!-- Left Sidebar Navigation -->
+        <aside class="md:w-64 flex-shrink-0">
+            <nav class="sticky top-8 space-y-2">
+                <p class="text-xs font-bold text-slate-400 uppercase tracking-widest px-4 mb-4">快速導覽</p>
+
+                <a href="#case-blog"
+                    class="sidebar-link flex items-center gap-3 p-4 rounded-xl text-slate-600 transition-all font-medium border border-transparent hover:border-purple-100 shadow-sm bg-white md:bg-transparent">
+                    <i class="fas fa-blog text-purple-500"></i>
+                    <span>部落格文章</span>
+                </a>
+
+                <a href="#rd-suggestion"
+                    class="sidebar-link flex items-center gap-3 p-4 rounded-xl text-slate-600 transition-all font-medium border border-transparent hover:border-amber-100 shadow-sm bg-white md:bg-transparent pl-8 italic text-sm">
+                    <i class="fas fa-microchip text-amber-500"></i>
+                    <span>系統優化建議</span>
+                </a>
+
+                <a href="#case-static"
+                    class="sidebar-link flex items-center gap-3 p-4 rounded-xl text-slate-600 transition-all font-medium border border-transparent hover:border-blue-100 shadow-sm bg-white md:bg-transparent">
+                    <i class="fas fa-file-lines text-blue-500"></i>
+                    <span>靜態簡介頁面</span>
+                </a>
+
+                <a href="#designer-sop"
+                    class="sidebar-link flex items-center gap-3 p-4 rounded-xl text-slate-600 transition-all font-medium border border-transparent hover:border-indigo-100 shadow-sm bg-white md:bg-transparent">
+                    <i class="fas fa-comments text-indigo-500"></i>
+                    <span>溝通 SOP</span>
+                </a>
+
+                <a href="#seo-effects"
+                    class="sidebar-link flex items-center gap-3 p-4 rounded-xl text-slate-600 transition-all font-medium border border-transparent hover:border-emerald-100 shadow-sm bg-white md:bg-transparent">
+                    <i class="fas fa-chart-line text-emerald-500"></i>
+                    <span>預期 SEO 效益</span>
+                </a>
+
+                <div class="mt-8 p-4 bg-purple-50 rounded-2xl border border-purple-100 hidden md:block">
+                    <p class="text-xs text-purple-700 leading-relaxed font-medium">
+                        <i class="fas fa-info-circle mr-1"></i> 提示：
+                        向客戶解釋時，建議優先強調「權威集中」而非單純的技術問題。
+                    </p>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Right Content Area -->
+        <main class="flex-1 space-y-16">
+
+            <!-- Case Study Section: Blog -->
+            <section id="case-blog">
+                <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                    <span class="w-1.5 h-6 bg-purple-600 rounded-full"></span>
+                    場景一：動態部落格文章
+                </h2>
+                <div class="grid lg:grid-cols-2 gap-6 items-stretch mb-8">
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border-t-4 border-red-500">
+                        <h3 class="font-bold text-red-600 mb-3 flex items-center gap-2">
+                            <i class="fas fa-times-circle"></i> 常見錯誤：直接發布
+                        </h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            同一篇文章在 A、B、C 站台各有一個網址。Google 爬蟲會判定為重複內容，造成權重稀釋。
+                        </p>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border-t-4 border-emerald-500">
+                        <h3 class="font-bold text-emerald-600 mb-3 flex items-center gap-2">
+                            <i class="fas fa-check-circle"></i> 建議做法：導流機制
+                        </h3>
+                        <p class="text-sm text-slate-600 leading-relaxed">
+                            子站只放標題與摘要。全文連往「主站台」，將所有流量轉換為 SEO 權威權重。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- R&D Suggestion Box -->
+                <div id="rd-suggestion"
+                    class="bg-amber-50 rounded-3xl border-2 border-amber-200 p-8 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-10">
+                        <i class="fas fa-lightbulb text-7xl text-amber-600"></i>
+                    </div>
+                    <div class="relative z-10">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+                            <h3 class="text-xl font-bold text-amber-900 flex items-center gap-2">
+                                <i class="fas fa-microchip text-2xl"></i> 研發部建議：系統未來優化方案
+                            </h3>
+                            <!-- 新增標註 -->
+                            <div
+                                class="bg-red-500 text-white text-xs font-bold px-4 py-2 rounded-lg flex items-center gap-2 animate-pulse shadow-md">
+                                <i class="fas fa-headset"></i> 遇此需求請直接聯繫研發部溝通
+                            </div>
+                        </div>
+
+                        <p class="text-slate-700 mb-6 leading-relaxed border-l-4 border-amber-300 pl-4">
+                            針對未來「跨站台共用部落格」需求，我們建議優化 Odoo 系統管理後台，導入「外鏈映射機制」：
+                        </p>
+
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div
+                                class="flex items-start gap-4 bg-white/60 p-4 rounded-xl border border-amber-100 shadow-sm">
+                                <i class="fas fa-plus-circle text-amber-600 mt-1"></i>
+                                <div>
+                                    <h4 class="font-bold text-slate-800 text-sm">新增「跳轉連結」欄位</h4>
+                                    <p class="text-xs text-slate-500 mt-1">在建立部落格文章時，除了圖文描述，多加一個選填的「指定跳轉網址」。</p>
+                                </div>
+                            </div>
+                            <div
+                                class="flex items-start gap-4 bg-white/60 p-4 rounded-xl border border-amber-100 shadow-sm">
+                                <i class="fas fa-list-check text-amber-600 mt-1"></i>
+                                <div>
+                                    <h4 class="font-bold text-slate-800 text-sm">保持列表，解決重複網頁</h4>
+                                    <p class="text-xs text-slate-500 mt-1">子站列表依然精美，維持網站內容厚度，但點擊後直接執行連結跳轉。</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 pt-6 border-t border-amber-200/50 flex flex-wrap gap-4">
+                            <span
+                                class="text-xs font-bold bg-amber-200 text-amber-800 px-3 py-1 rounded-lg">#技術亮點</span>
+                            <span class="text-xs text-amber-700 italic flex items-center gap-1">
+                                <i class="fas fa-check text-[10px]"></i> 徹底解決物理重複頁面
+                            </span>
+                            <span class="text-xs text-amber-700 italic flex items-center gap-1">
+                                <i class="fas fa-check text-[10px]"></i> 無需人工判斷 SEO 權重
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section: Static Pages -->
+            <section id="case-static">
+                <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                    <span class="w-1.5 h-6 bg-blue-600 rounded-full"></span>
+                    場景二：靜態頁面 (公司簡介)
+                </h2>
+                <div class="bg-blue-50 p-8 rounded-3xl border border-blue-100 shadow-inner">
+                    <h3 class="text-xl font-bold text-blue-900 mb-4">為什麼不能複製貼上？</h3>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <p class="text-sm text-slate-600 leading-relaxed mb-4">
+                                品牌故事或公司簡介若完全一致，會產生「身分衝突」。Google 可能會隨機顯示某個子站，導致官方主站無法排在第一位。
+                            </p>
+                            <ul class="space-y-3 text-sm text-slate-700 font-medium">
+                                <li class="flex items-center gap-2"><i class="fas fa-ban text-red-400"></i> 品牌身分混淆</li>
+                                <li class="flex items-center gap-2"><i class="fas fa-filter text-red-400"></i> 子站搜尋結果被隱藏
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="bg-white/60 p-5 rounded-xl border border-blue-200">
+                            <h4 class="text-sm font-bold text-blue-800 mb-3">最佳化對策：</h4>
+                            <ul class="text-xs space-y-3 text-slate-600">
+                                <li><strong class="text-blue-700">內容在地化：</strong>加入該地區專屬的團隊或服務照片。</li>
+                                <li><strong class="text-blue-700">角度切換：</strong>子站側重服務承諾，主站側重集團歷史。</li>
+                                <li><strong class="text-blue-700">技術宣告：</strong>必要時使用 Canonical 標記標註出處。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Designer Toolset -->
+            <section id="designer-sop">
+                <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                    <span class="w-1.5 h-6 bg-indigo-600 rounded-full"></span>
+                    設計師工具箱：溝通話術範本
+                </h2>
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-100">
+                    <div class="flex items-start gap-4 mb-6">
+                        <i class="fas fa-quote-left text-indigo-200 text-4xl"></i>
+                        <p class="text-lg text-slate-700 italic leading-relaxed">
+                            「如果我們在子站放一模一樣的文章，Google 會覺得這些站在抄襲。我們建議在子站放精美的摘要引導，把客人都帶回總部官網，這樣對您的排名才是最好的方案。」
+                        </p>
+                    </div>
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <div class="p-4 bg-slate-50 rounded-xl border border-slate-100 text-center">
+                            <i class="fas fa-window-restore text-indigo-500 mb-2"></i>
+                            <div class="text-xs font-bold">新分頁開啟</div>
+                        </div>
+                        <div class="p-4 bg-slate-50 rounded-xl border border-slate-100 text-center">
+                            <i class="fas fa-link text-indigo-500 mb-2"></i>
+                            <div class="text-xs font-bold">UTM 流量追蹤</div>
+                        </div>
+                        <div class="p-4 bg-slate-50 rounded-xl border border-slate-100 text-center">
+                            <i class="fas fa-map-marked-alt text-indigo-500 mb-2"></i>
+                            <div class="text-xs font-bold">在地化調整</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SEO Effects Section -->
+            <section id="seo-effects">
+                <h2 class="text-2xl font-bold mb-6 flex items-center gap-3">
+                    <span class="w-1.5 h-6 bg-emerald-600 rounded-full"></span>
+                    預期優化效益
+                </h2>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="bg-emerald-50 p-6 rounded-2xl border border-emerald-100">
+                        <h4 class="font-bold text-emerald-900 mb-2">搜尋佔位擴張</h4>
+                        <p class="text-xs text-emerald-800 opacity-80 leading-relaxed">
+                            透過內容在地化，不同子站可以覆蓋更多的長尾關鍵字，達成搜尋結果「霸榜」效果。
+                        </p>
+                    </div>
+                    <div class="bg-emerald-50 p-6 rounded-2xl border border-emerald-100">
+                        <h4 class="font-bold text-emerald-900 mb-2">信任度堆疊</h4>
+                        <p class="text-xs text-emerald-800 opacity-80 leading-relaxed">
+                            獨特內容會增加子站的獨立網域權重，而導流連結則大幅強化主站的權威值。
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Back to Top Button -->
+    <a href="#top"
+        class="fixed bottom-8 right-8 bg-purple-600 text-white w-12 h-12 rounded-full shadow-2xl flex items-center justify-center hover:bg-purple-700 transition-all hover:-translate-y-1 z-50">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+
+    <footer class="bg-slate-900 text-slate-500 py-10 px-6 mt-20">
+        <div class="max-w-7xl mx-auto text-center">
+            <p class="text-sm mb-2 tracking-widest uppercase text-slate-400 font-bold">ICB Odoo 14 Multi-Website SOP</p>
+            <p class="text-xs opacity-50">© 2024 ICB System Management. 專業 ERP 整合與 SEO 策略顧問。</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
