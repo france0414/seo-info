@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,6 +18,7 @@
             --accent-2: #22d3ee;
             --panel: rgba(15, 23, 42, 0.72);
         }
+
         body {
             font-family: 'Noto Sans TC', sans-serif;
             scroll-behavior: smooth;
@@ -25,6 +27,7 @@
             font-size: 16px;
             line-height: 1.7;
         }
+
         body::before {
             content: "";
             position: fixed;
@@ -35,6 +38,7 @@
                 linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
             z-index: -2;
         }
+
         body::after {
             content: "";
             position: fixed;
@@ -47,6 +51,7 @@
             z-index: -1;
             pointer-events: none;
         }
+
         .prose code {
             background-color: rgba(15, 23, 42, 0.9);
             padding: 0.2rem 0.4rem;
@@ -54,13 +59,16 @@
             color: #38bdf8;
             font-size: 0.9em;
         }
+
         .sticky-sidebar {
             height: calc(100vh - 4rem);
             top: 2rem;
         }
+
         .header-glass {
             box-shadow: 0 10px 28px rgba(8, 12, 22, 0.6);
         }
+
         .nav-link {
             display: block;
             padding: 0.55rem 0.8rem;
@@ -69,17 +77,20 @@
             border: 1px solid transparent;
             transition: all 0.2s ease;
         }
+
         .nav-link:hover {
             background: rgba(15, 23, 42, 0.9);
             border-color: rgba(56, 189, 248, 0.2);
             color: #e2e8f0;
             box-shadow: 0 10px 22px rgba(8, 12, 22, 0.6);
         }
+
         .nav-link.active {
             background: rgba(56, 189, 248, 0.12);
             color: #7dd3fc;
             border-color: rgba(56, 189, 248, 0.35);
         }
+
         .panel {
             background: var(--panel);
             border: 1px solid var(--line);
@@ -87,17 +98,20 @@
             box-shadow: 0 18px 36px rgba(8, 12, 22, 0.55);
             backdrop-filter: blur(6px);
         }
+
         .panel-muted {
             background: rgba(15, 23, 42, 0.6);
             border: 1px solid rgba(148, 163, 184, 0.18);
             border-radius: 1.25rem;
         }
+
         .panel-accent {
             background: linear-gradient(135deg, rgba(15, 23, 42, 0.85), rgba(14, 116, 144, 0.75));
             border: 1px solid rgba(56, 189, 248, 0.35);
             border-radius: 1.5rem;
             box-shadow: 0 22px 40px rgba(14, 116, 144, 0.35);
         }
+
         .panel-danger {
             background: rgba(127, 29, 29, 0.25);
             border: 1px solid rgba(248, 113, 113, 0.28);
@@ -105,6 +119,7 @@
             border-radius: 1.25rem;
             box-shadow: 0 16px 30px rgba(127, 29, 29, 0.35);
         }
+
         .panel-success {
             background: rgba(20, 83, 45, 0.25);
             border: 1px solid rgba(74, 222, 128, 0.28);
@@ -112,6 +127,7 @@
             border-radius: 1.25rem;
             box-shadow: 0 16px 30px rgba(20, 83, 45, 0.35);
         }
+
         .panel-dark {
             background: #0a0f1c;
             border: 1px solid rgba(56, 189, 248, 0.15);
@@ -119,6 +135,7 @@
             position: relative;
             overflow: hidden;
         }
+
         .panel-dark::after {
             content: "";
             position: absolute;
@@ -130,65 +147,202 @@
             opacity: 0.4;
             pointer-events: none;
         }
-        body .text-slate-900 { color: #e2e8f0 !important; }
-        body .text-slate-800 { color: #cbd5e1 !important; }
-        body .text-slate-700 { color: #cbd5e1 !important; }
-        body .text-slate-600 { color: #94a3b8 !important; }
-        body .text-slate-500 { color: #94a3b8 !important; }
-        body .text-slate-400 { color: #64748b !important; }
-        body .text-slate-300 { color: #cbd5e1 !important; }
-        body .text-xs { font-size: 16px !important; line-height: 1.7 !important; }
-        body .text-blue-800 { color: #bae6fd !important; }
-        body .text-blue-600 { color: #38bdf8 !important; }
-        body .text-blue-500 { color: #38bdf8 !important; }
-        body .text-green-700 { color: #4ade80 !important; }
-        body .text-green-600 { color: #4ade80 !important; }
-        body .text-red-700 { color: #f87171 !important; }
-        body .text-red-600 { color: #f87171 !important; }
-        body .text-orange-800 { color: #fbbf24 !important; }
-        body .text-amber-600 { color: #f59e0b !important; }
-        body .bg-white { background-color: rgba(15, 23, 42, 0.85) !important; }
-        body .bg-slate-100 { background-color: rgba(15, 23, 42, 0.7) !important; }
-        body .bg-blue-50 { background-color: rgba(56, 189, 248, 0.12) !important; }
-        body .bg-blue-100 { background-color: rgba(56, 189, 248, 0.14) !important; }
-        body .bg-red-50 { background-color: rgba(248, 113, 113, 0.14) !important; }
-        body .bg-green-50 { background-color: rgba(74, 222, 128, 0.14) !important; }
-        body .bg-amber-100 { background-color: rgba(251, 191, 36, 0.14) !important; }
-        body .border-slate-100 { border-color: rgba(148, 163, 184, 0.18) !important; }
-        body .border-slate-200 { border-color: rgba(148, 163, 184, 0.22) !important; }
-        body .border-slate-300 { border-color: rgba(148, 163, 184, 0.3) !important; }
-        body .border-slate-400 { border-color: rgba(148, 163, 184, 0.4) !important; }
-        body .border-slate-600 { border-color: rgba(148, 163, 184, 0.5) !important; }
-        body .border-blue-200 { border-color: rgba(56, 189, 248, 0.35) !important; }
-        body .border-green-200 { border-color: rgba(74, 222, 128, 0.35) !important; }
-        body .border-red-100 { border-color: rgba(248, 113, 113, 0.3) !important; }
-        main > section {
+
+        body .text-slate-900 {
+            color: #e2e8f0 !important;
+        }
+
+        body .text-slate-800 {
+            color: #cbd5e1 !important;
+        }
+
+        body .text-slate-700 {
+            color: #cbd5e1 !important;
+        }
+
+        body .text-slate-600 {
+            color: #94a3b8 !important;
+        }
+
+        body .text-slate-500 {
+            color: #94a3b8 !important;
+        }
+
+        body .text-slate-400 {
+            color: #64748b !important;
+        }
+
+        body .text-slate-300 {
+            color: #cbd5e1 !important;
+        }
+
+        body .text-xs {
+            font-size: 15px !important;
+            line-height: 1.5 !important;
+        }
+
+        body .text-blue-800 {
+            color: #bae6fd !important;
+        }
+
+        body .text-blue-600 {
+            color: #38bdf8 !important;
+        }
+
+        body .text-blue-500 {
+            color: #38bdf8 !important;
+        }
+
+        body .text-green-700 {
+            color: #4ade80 !important;
+        }
+
+        body .text-green-600 {
+            color: #4ade80 !important;
+        }
+
+        body .text-red-700 {
+            color: #f87171 !important;
+        }
+
+        body .text-red-600 {
+            color: #f87171 !important;
+        }
+
+        body .text-orange-800 {
+            color: #fbbf24 !important;
+        }
+
+        body .text-amber-600 {
+            color: #f59e0b !important;
+        }
+
+        body .bg-white {
+            background-color: rgba(15, 23, 42, 0.85) !important;
+        }
+
+        body .bg-slate-100 {
+            background-color: rgba(15, 23, 42, 0.7) !important;
+        }
+
+        body .bg-blue-50 {
+            background-color: rgba(56, 189, 248, 0.12) !important;
+        }
+
+        body .bg-blue-100 {
+            background-color: rgba(56, 189, 248, 0.14) !important;
+        }
+
+        body .bg-red-50 {
+            background-color: rgba(248, 113, 113, 0.14) !important;
+        }
+
+        body .bg-green-50 {
+            background-color: rgba(74, 222, 128, 0.14) !important;
+        }
+
+        body .bg-amber-100 {
+            background-color: rgba(251, 191, 36, 0.14) !important;
+        }
+
+        body .border-slate-100 {
+            border-color: rgba(148, 163, 184, 0.18) !important;
+        }
+
+        body .border-slate-200 {
+            border-color: rgba(148, 163, 184, 0.22) !important;
+        }
+
+        body .border-slate-300 {
+            border-color: rgba(148, 163, 184, 0.3) !important;
+        }
+
+        body .border-slate-400 {
+            border-color: rgba(148, 163, 184, 0.4) !important;
+        }
+
+        body .border-slate-600 {
+            border-color: rgba(148, 163, 184, 0.5) !important;
+        }
+
+        body .border-blue-200 {
+            border-color: rgba(56, 189, 248, 0.35) !important;
+        }
+
+        body .border-green-200 {
+            border-color: rgba(74, 222, 128, 0.35) !important;
+        }
+
+        body .border-red-100 {
+            border-color: rgba(248, 113, 113, 0.3) !important;
+        }
+
+        main>section {
             opacity: 0;
             transform: translateY(16px);
             animation: fadeUp 0.65s ease forwards;
         }
-        main > section:nth-of-type(1) { animation-delay: 0.05s; }
-        main > section:nth-of-type(2) { animation-delay: 0.12s; }
-        main > section:nth-of-type(3) { animation-delay: 0.18s; }
-        main > section:nth-of-type(4) { animation-delay: 0.24s; }
-        main > section:nth-of-type(5) { animation-delay: 0.3s; }
-        main > section:nth-of-type(6) { animation-delay: 0.36s; }
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(16px); }
-            to { opacity: 1; transform: translateY(0); }
+
+        main>section:nth-of-type(1) {
+            animation-delay: 0.05s;
         }
+
+        main>section:nth-of-type(2) {
+            animation-delay: 0.12s;
+        }
+
+        main>section:nth-of-type(3) {
+            animation-delay: 0.18s;
+        }
+
+        main>section:nth-of-type(4) {
+            animation-delay: 0.24s;
+        }
+
+        main>section:nth-of-type(5) {
+            animation-delay: 0.3s;
+        }
+
+        main>section:nth-of-type(6) {
+            animation-delay: 0.36s;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(16px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         @media (prefers-reduced-motion: reduce) {
-            main > section { animation: none; opacity: 1; transform: none; }
+            main>section {
+                animation: none;
+                opacity: 1;
+                transform: none;
+            }
         }
     </style>
 </head>
+
 <body class="bg-transparent text-slate-100">
 
     <!-- Header -->
     <header class="bg-slate-950/70 border-b border-slate-800/60 sticky top-0 z-50 py-4 backdrop-blur-xl header-glass">
         <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
             <div class="flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-600"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="text-blue-600">
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="2" y1="12" x2="22" y2="12" />
+                    <path
+                        d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                </svg>
                 <span class="font-bold text-xl tracking-tight">SEO Design Manual</span>
             </div>
             <div class="hidden md:block text-sm text-slate-500 italic">為設計師打造的技術溝通指南</div>
@@ -196,7 +350,7 @@
     </header>
 
     <div class="max-w-7xl mx-auto px-6 py-10 flex flex-col md:flex-row gap-10">
-        
+
         <!-- Sidebar Navigation -->
         <aside class="md:w-64 shrink-0">
             <nav class="sticky sticky-sidebar space-y-2">
@@ -222,7 +376,10 @@
                 </p>
                 <div class="panel-accent text-white p-6 flex items-center gap-6">
                     <div class="hidden sm:block">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                        </svg>
                     </div>
                     <div>
                         <h3 class="font-bold text-xl mb-1">給設計師的一句話：</h3>
@@ -234,7 +391,12 @@
             <!-- 301 Redirects -->
             <section id="redirects" class="scroll-mt-24">
                 <div class="flex items-center gap-3 mb-6">
-                    <span class="bg-red-100 text-red-600 p-2 rounded-lg"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 7v6h-6"/><path d="M3 17a9 9 0 0 1 9-9 9 9 0 0 1 6 2.3l3 2.7"/></svg></span>
+                    <span class="bg-red-100 text-red-600 p-2 rounded-lg"><svg xmlns="http://www.w3.org/2000/svg"
+                            width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 7v6h-6" />
+                            <path d="M3 17a9 9 0 0 1 9-9 9 9 0 0 1 6 2.3l3 2.7" />
+                        </svg></span>
                     <h2 class="text-3xl font-bold">301 轉址：網頁的「搬家告示」</h2>
                 </div>
                 <div class="grid md:grid-cols-2 gap-8">
@@ -253,11 +415,19 @@
                         <h4 class="font-bold mb-4">🎨 設計師任務：</h4>
                         <ul class="space-y-2 text-sm text-slate-700">
                             <li class="flex items-start gap-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-1 text-blue-500"><polyline points="20 6 9 17 4 12"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="mt-1 text-blue-500">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
                                 只要網址動過，就必須列出「舊對新網址清單」。
                             </li>
                             <li class="flex items-start gap-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-1 text-blue-500"><polyline points="20 6 9 17 4 12"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="mt-1 text-blue-500">
+                                    <polyline points="20 6 9 17 4 12" />
+                                </svg>
                                 確保新頁面內容能對應舊頁面需求，不讓跳出率提高。
                             </li>
                         </ul>
@@ -268,24 +438,43 @@
             <!-- Canonical Tag -->
             <section id="canonical" class="scroll-mt-24">
                 <div class="flex items-center gap-3 mb-6">
-                    <span class="bg-blue-100 text-blue-600 p-2 rounded-lg"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg></span>
+                    <span class="bg-blue-100 text-blue-600 p-2 rounded-lg"><svg xmlns="http://www.w3.org/2000/svg"
+                            width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" />
+                            <line x1="7" y1="7" x2="7.01" y2="7" />
+                        </svg></span>
                     <h2 class="text-3xl font-bold">Canonical Tag：網頁的「正宗商標」</h2>
                 </div>
                 <div class="panel p-8">
                     <p class="mb-6 leading-relaxed">當網站因為篩選功能（顏色、排序）或廣告追蹤而產生多個網址，但內容卻是大同小時，我們需要聲明誰才是「正傳」。</p>
-                    
+
                     <div class="flex flex-col lg:flex-row gap-6 items-center">
                         <div class="w-full lg:w-1/2 space-y-3">
-                            <div class="p-3 bg-slate-900/60 border border-slate-700/60 rounded text-xs font-mono text-slate-300">example.com/product-a</div>
-                            <div class="p-3 bg-slate-900/60 border border-slate-700/60 rounded text-xs font-mono text-slate-300">example.com/product-a?color=blue</div>
-                            <div class="p-3 bg-slate-900/60 border border-slate-700/60 rounded text-xs font-mono text-slate-300">example.com/product-a?utm_source=fb</div>
+                            <div
+                                class="p-3 bg-slate-900/60 border border-slate-700/60 rounded text-xs font-mono text-slate-300">
+                                example.com/product-a</div>
+                            <div
+                                class="p-3 bg-slate-900/60 border border-slate-700/60 rounded text-xs font-mono text-slate-300">
+                                example.com/product-a?color=blue</div>
+                            <div
+                                class="p-3 bg-slate-900/60 border border-slate-700/60 rounded text-xs font-mono text-slate-300">
+                                example.com/product-a?utm_source=fb</div>
                         </div>
                         <div class="hidden lg:block">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-500"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="text-blue-500">
+                                <line x1="5" y1="12" x2="19" y2="12" />
+                                <polyline points="12 5 19 12 12 19" />
+                            </svg>
                         </div>
                         <div class="w-full lg:w-1/2">
-                            <div class="p-6 panel-muted border-2 border-dashed border-slate-300 rounded-xl flex flex-col items-center">
-                                <span class="bg-sky-400 text-slate-950 text-[10px] px-2 py-0.5 rounded-full mb-2 uppercase font-bold">Canonical URL</span>
+                            <div
+                                class="p-6 panel-muted border-2 border-dashed border-slate-300 rounded-xl flex flex-col items-center">
+                                <span
+                                    class="bg-sky-400 text-slate-950 text-[10px] px-2 py-0.5 rounded-full mb-2 uppercase font-bold">Canonical
+                                    URL</span>
                                 <div class="text-sm font-bold text-sky-200 font-mono">example.com/product-a</div>
                             </div>
                         </div>
@@ -306,12 +495,16 @@
             <!-- Hreflang -->
             <section id="hreflang" class="scroll-mt-24">
                 <div class="flex items-center gap-3 mb-6">
-                    <span class="bg-green-100 text-green-600 p-2 rounded-lg"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+                    <span class="bg-green-100 text-green-600 p-2 rounded-lg"><svg xmlns="http://www.w3.org/2000/svg"
+                            width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                        </svg></span>
                     <h2 class="text-3xl font-bold">Hreflang：給爬蟲看的「地圖導航」</h2>
                 </div>
                 <div class="panel p-8 space-y-6">
                     <p>這標籤告訴 Google：<strong>「這頁是給繁中用戶看，那頁是給英文用戶看」</strong>。如果沒設，Google 可能會讓台灣人在搜尋結果中看到英文站。</p>
-                    
+
                     <div class="grid sm:grid-cols-3 gap-4">
                         <div class="p-4 border border-slate-200 rounded-xl text-center">
                             <div class="text-2xl mb-2">🇹🇼</div>
@@ -342,7 +535,13 @@
             <!-- IP Redirect Avoidance -->
             <section id="ip-redirect" class="scroll-mt-24">
                 <div class="flex items-center gap-3 mb-6">
-                    <span class="bg-amber-100 text-amber-600 p-2 rounded-lg"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+                    <span class="bg-amber-100 text-amber-600 p-2 rounded-lg"><svg xmlns="http://www.w3.org/2000/svg"
+                            width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
+                            <line x1="12" y1="9" x2="12" y2="13" />
+                            <line x1="12" y1="17" x2="12.01" y2="17" />
+                        </svg></span>
                     <h2 class="text-3xl font-bold">技術禁忌：不要強制自動 IP 跳轉</h2>
                 </div>
                 <div class="grid md:grid-cols-2 gap-8">
@@ -389,14 +588,18 @@
                     <div class="grid md:grid-cols-2 gap-10">
                         <div class="space-y-6">
                             <div class="flex gap-4">
-                                <div class="w-6 h-6 rounded border-2 border-slate-600 flex items-center justify-center shrink-0 mt-1">✓</div>
+                                <div
+                                    class="w-6 h-6 rounded border-2 border-slate-600 flex items-center justify-center shrink-0 mt-1">
+                                    ✓</div>
                                 <div>
                                     <h4 class="font-bold">舊路徑轉向計畫</h4>
                                     <p class="text-slate-400 text-sm">我是否在改版文件中註明了哪些頁面需要進行 301 轉址？</p>
                                 </div>
                             </div>
                             <div class="flex gap-4">
-                                <div class="w-6 h-6 rounded border-2 border-slate-600 flex items-center justify-center shrink-0 mt-1">✓</div>
+                                <div
+                                    class="w-6 h-6 rounded border-2 border-slate-600 flex items-center justify-center shrink-0 mt-1">
+                                    ✓</div>
                                 <div>
                                     <h4 class="font-bold">規範網址 (Canonical)</h4>
                                     <p class="text-slate-400 text-sm">每個站點是否都擁有獨立自指的 Canonical Tag 規劃？</p>
@@ -405,14 +608,18 @@
                         </div>
                         <div class="space-y-6">
                             <div class="flex gap-4">
-                                <div class="w-6 h-6 rounded border-2 border-slate-600 flex items-center justify-center shrink-0 mt-1">✓</div>
+                                <div
+                                    class="w-6 h-6 rounded border-2 border-slate-600 flex items-center justify-center shrink-0 mt-1">
+                                    ✓</div>
                                 <div>
                                     <h4 class="font-bold">多語系關聯</h4>
                                     <p class="text-slate-400 text-sm">我是否設計了合適的 Hreflang 邏輯與 x-default 預設點？</p>
                                 </div>
                             </div>
                             <div class="flex gap-4">
-                                <div class="w-6 h-6 rounded border-2 border-slate-600 flex items-center justify-center shrink-0 mt-1">✓</div>
+                                <div
+                                    class="w-6 h-6 rounded border-2 border-slate-600 flex items-center justify-center shrink-0 mt-1">
+                                    ✓</div>
                                 <div>
                                     <h4 class="font-bold">引導式切換 UX</h4>
                                     <p class="text-slate-400 text-sm">我是否使用彈窗提示取代了強制的 IP 自動跳轉？</p>
@@ -434,4 +641,5 @@
     </footer>
 
 </body>
+
 </html>
